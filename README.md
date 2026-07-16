@@ -6,53 +6,6 @@ A production-ready, cloud-native REST API designed to handle secure ledger trans
 
 ## 🏗️ System Architecture
 
-The application is deployed securely within Amazon Webservices (AWS). Traffic flows from the client through internet protocols directly to our application tier, which securely queries our data tier inside isolated subnets.
-
-   [ Client / Postman / curl ]
-               │ (HTTP / Port 80)
-               ▼
- ┌─────────────────────────────┐
- │          AWS VPC            │
- │  ┌───────────────────────┐  │
- │  │     EC2 Instance      │  │
- │  │ ┌───────────────────┐ │  │
- │  │ │    Nginx Proxy    │ │  │
- │  │ └─────────┬─────────┘ │  │
- │  │           │ (Port 3000)  │
- │  │ ┌─────────▼─────────┐ │  │
- │  │ │ Node.js Express   │ │  │
- │  │ │ managed by PM2    │ │  │
- │  │ └─────────┬─────────┘ │  │
- │  └───────────┼───────────┘  │
- │              │ (PostgreSQL Port 5432)
- │  ┌───────────▼───────────┐  │
- │  │     Amazon RDS        │  │
- │  │   PostgreSQL DB       │  │
- │  └───────────────────────┘  │
- └─────────────────────────────┘
-
----
-
-## 💼 Business Impact & Use Case
-
-In financial technology, data integrity and system availability are non-negotiable. A ledger system requires strict consistency, high availability, and durable backups. 
-
-By deploying this API with a decoupled architecture:
-* **Separation of Concerns:** Running the application logic on EC2 and the data storage on RDS ensures that high API traffic spikes don't starve the database of compute resources.
-* **Data Durability:** Utilizing AWS RDS PostgreSQL provides automatic automated backups, point-in-time recovery, and effortless scalability compared to self-hosting database files.
-* **Cost Efficiency:** Transitioned infrastructure from continuous active states to dynamic, on-demand cycles, establishing strict monitoring alerts to avoid cloud resource leakage.
-
----
-
-Markdown
-# Ledger Core API
-
-A production-ready, cloud-native REST API designed to handle secure ledger transactions. Built with Node.js and Express, the application is deployed on a highly scalable AWS infrastructure featuring an Amazon EC2 web server and a dedicated Amazon RDS PostgreSQL database.
-
----
-
-## 🏗️ System Architecture
-
 The application is deployed securely within Amazon Web Services (AWS). Traffic flows from the client through internet protocols directly to our application tier, which securely queries our data tier inside isolated subnets.
 
 ```text
@@ -118,5 +71,3 @@ The Lesson: I learned the importance of separating configuration from applicatio
 What Happened: "I got booted out of the server mid-edit because I was inactive in the terminal while working in the AWS browser console."
 
 The Lesson: Working on a remote cloud server (EC2) is fundamentally different from working locally. Remote servers enforce strict security timeouts (SSH keep-alive limits) to prevent idle connections from staying open. I learned how to recover from sudden disconnects, reconnect using SSH keys, and navigate back to my environment quickly.
-
-
