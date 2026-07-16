@@ -31,6 +31,8 @@ The application is deployed securely within Amazon Web Services (AWS). Traffic f
      │  │   PostgreSQL DB       │  │
      │  └───────────────────────┘  │
      └─────────────────────────────┘
+```
+
 💼 Business Impact & Use Case
 In financial technology, data integrity and system availability are non-negotiable. A ledger system requires strict consistency, high availability, and durable backups.
 
