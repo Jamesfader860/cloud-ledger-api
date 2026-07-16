@@ -71,3 +71,34 @@ The Lesson: I learned the importance of separating configuration from applicatio
 What Happened: "I got booted out of the server mid-edit because I was inactive in the terminal while working in the AWS browser console."
 
 The Lesson: Working on a remote cloud server (EC2) is fundamentally different from working locally. Remote servers enforce strict security timeouts (SSH keep-alive limits) to prevent idle connections from staying open. I learned how to recover from sudden disconnects, reconnect using SSH keys, and navigate back to my environment quickly.
+
+
+
+---
+
+## 📷 System Verification & Screenshots
+
+Below is the visual verification of the operational infrastructure, services, and successful deployment tests.
+
+### AWS Cloud Infrastructure Status
+Here are the active, running instances for both our application host and our database in the AWS console.
+
+**Amazon EC2 Instance Dashboard:**
+![AWS EC2 Instance Running](01-aws-ec2-instance-running.png)
+
+**Amazon RDS Database Instance Status:**
+![AWS RDS Postgres Status](aws-rds-postgres-status.png)
+
+---
+
+### Process Monitoring & API Success Tests
+With the infrastructure active, these screenshots verify that Nginx is acting as our web gateway, PM2 is managing our application process, and our API is successfully connecting directly to our RDS instance.
+
+**Nginx Gateway Active:**
+![Nginx Gateway Active](01-nginx-active.png)
+
+**PM2 Daemon Status:**
+![PM2 Process Monitor](pm2-process-monitor.png)
+
+**API Database Connection Success:**
+![API Connection Success](api-connection-success.png)
